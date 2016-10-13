@@ -1,0 +1,7 @@
+/node_modules
+/*.js
+/npm-debug.log*
+
+# all public files apart from index
+/public/*
+!/public/index.html
