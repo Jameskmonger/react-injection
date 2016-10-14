@@ -1,7 +1,7 @@
 import * as Webpack from "webpack";
 
 export default {
-    entry: "./index.tsx",
+    entry: "./index.ts",
     output: {
         path: "./public",
         filename: "bundle.js"

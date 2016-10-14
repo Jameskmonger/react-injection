@@ -1,18 +1,22 @@
 import { Kernel } from "inversify";
+import getDecorators from "inversify-inject-decorators";
 import "reflect-metadata";
 
 let kernel = new Kernel();
+let decorators = getDecorators(kernel);
+let inject = decorators.lazyInject;
 
 // bindings
 
-import { IHeader, Header } from "./header";
-kernel.bind("IHeader")
-    .toConstantValue(Header);
-
 import { IApp, App } from "./app";
-kernel.bind("IApp")
-    .toConstantValue(App);
+kernel.bind<new () => IApp>("IApp").toConstantValue(App);
+
+import { IHeader, Header } from "./header";
+kernel.bind<new () => IHeader>("IHeader").toConstantValue(Header);
 
 // end bindings
 
-export default kernel;
+export {
+    kernel,
+    inject
+};

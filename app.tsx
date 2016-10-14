@@ -1,5 +1,5 @@
 import * as React from "react";
-import { inject } from "inversify";
+import { inject } from "./inversify.config";
 
 import { IHeader } from "./header";
 
@@ -13,15 +13,8 @@ export interface IApp extends React.Component<AppProps, AppState> {
 
 export class App extends React.Component<AppProps, AppState> implements IApp {
 
+    @inject("IHeader")
     private header: new () => IHeader;
-
-    constructor (
-        @inject("IHeader") header: new () => IHeader
-    ) {
-        super();
-
-        this.header = header;
-    }
 
     public render(): React.ReactElement<{}> {
         return <section>

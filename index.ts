@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import { IApp } from "./app";
-import kernel from "./inversify.config";
+import { kernel } from "./inversify.config";
 
 let App = kernel.get<new () => IApp>("IApp");
 
