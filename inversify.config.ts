@@ -14,6 +14,9 @@ kernel.bind<new () => IApp>("IApp").toConstantValue(App);
 import { IHeader, Header } from "./header";
 kernel.bind<new () => IHeader>("IHeader").toConstantValue(Header);
 
+import { IText, Text } from "./text";
+kernel.bind<new () => IText>("IText").toConstantValue(Text);
+
 // end bindings
 
 export {
